@@ -13,7 +13,11 @@ class ApplicationController < ActionController::Base
   end
 
   def switch_lang
-    url = request.env["HTTP_REFERER"].sub(/\?locale=?\w*/, "?locale=#{params[:lang]}")
+    if request.env["HTTP_REFERER"].match(/\?locale=/)
+      url = request.env["HTTP_REFERER"].sub(/\?locale=\w*/, "?locale=#{params[:lang]}")
+    else
+      url = request.env["HTTP_REFERER"] + "?locale=#{params[:lang]}"
+    end
     if ( I18n.available_locales.include?(params[:lang].to_sym) &&
       url != request.env["HTTP_REFERER"])
       redirect_to url
@@ -33,6 +37,6 @@ class ApplicationController < ActionController::Base
     logger.debug "default_url_options is passed options: #{options.inspect}\n"
     #{ :locale => I18n.locale }
     options.merge({ :locale => I18n.locale })
-end
+  end
 
 end
