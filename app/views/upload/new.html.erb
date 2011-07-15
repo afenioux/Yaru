@@ -1,0 +1,20 @@
+<h1><%=t '.title' %></h1>
+
+  <%= field_set_tag t(:flash_uploader), :id => 'flash', :class => 'hide',
+    :style => 'display: none' do %>
+    <%=t :several_at_once %><br />
+    <%= link_to(t(:upload_file), '#',:id=> 'upload_link') %>
+    <%= content_tag(:ul, '', :id => 'uploader_file_list') %>
+    <%= link_to( t(:list_files), :action => :index) %>
+  <% end %>
+
+  <%= form_tag({:action => 'upload_file'},:id => 'no_flash', :multipart => true) do %>
+    <% field_set_tag t(:no_flash_uploader)do %>
+      <%=t :use_flash %><br />
+      <label for="upload_file"><%=t :select_file %></label> :
+      <%= file_field 'upload', 'datafile' %>
+      <%= submit_tag t(:up_load) %>
+      <br /><br />
+      <%= link_to(t(:list_files), :action => :index) %>
+    <% end %>
+  <% end %>

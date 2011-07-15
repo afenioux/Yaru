@@ -1,0 +1,31 @@
+fr:
+  logout: déconnexion
+  please_authenticate: Merci de vous authentifier
+  login: Utilisateur
+  password: Mot de passe
+  signin: Connexion
+  invalid_credentials: Identification échouée
+  logged_out: Déconnexion réussie
+  upload_ok: Envoi terminé avec succès
+  choose_file: Selectionnez un fichier!
+  deletion_ok: Suppression terminée
+
+  upload:
+    new:
+      title: Envoi de fichiers
+    index:
+      title: Liste des fichiers
+  flash_uploader: Envoi Flash
+  several_at_once: Vous pouvez selectionner plusieurs fichiers a envoyer!
+  list_files: Liste des fichiers envoyés
+  no_flash_uploader: Envoi HTML
+  use_flash: Vous devriez installer Adoble Flash et activer Javascript pour une meilleure utilisation.
+  select_file: Parcourir
+  up_load: Envoyer
+  deletion_folder: La suppression dun dossier effacera aussi son contenu
+  select_all: Tout selectionner
+  delete: Supprimer
+  confirm: Supprimer la selection?
+  new_upload: Nouvel envoi
+  language: langue
+  upload_file: Envoyer des fichiers

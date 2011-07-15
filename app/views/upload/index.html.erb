@@ -1,0 +1,26 @@
+<h1><%=t '.title' %></h1>
+
+<%=t :deletion_folder %><br /><br />
+<%= form_tag( {:action => :update}, :id => :deleteform ) do %>
+<% for file in @files %>
+<%= check_box_tag(file, 'delete_me') %>
+<% if file.last == '/' %>
+<b><%= label_tag(file, file) -%></b>
+<% else %>
+  <%= label_tag(file, file) %>
+  <%= link_to t(:download), :action => :download, :file => session[:login] + '/' + file %>
+<% end %>
+<br />
+<% end %>
+<br />
+<%= check_box_tag 'checkall', nil, nil, { :onclick =>"checkedAll('deleteform');" } %>
+<%= label_tag('checkall', t(:select_all)) %>
+<br />
+<%= submit_tag t(:delete), :confirm => t(:confirm) %>
+
+<%end%>
+
+<br />
+
+<%= link_to( t(:new_upload), :action => "new") %>
+<br />
