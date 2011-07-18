@@ -9,9 +9,8 @@
     <%= javascript_include_tag "mootools-core-1.3-full-compat-yc",
     "fancyupload/source/Fx.ProgressBar",
     "fancyupload/source/Swiff.Uploader",
-    "fancyupload/source/FancyUpload3.Attach"
+    "fancyupload/source/FancyUpload3.Attach",
     %>
-    <%# "http://ajax.googleapis.com/ajax/libs/mootools/1.2.2/mootools.js" %>
 
     <%= javascript_tag "window.addEvent('domready', function() {
 
@@ -20,37 +19,37 @@
      */
 
     var up = new FancyUpload3.Attach('uploader_file_list', '#upload_link', {
-      path: 'http://#{request.host_with_port}/javascripts/fancyupload/source/Swiff.Uploader.swf',
-      url: 'http://#{request.host_with_port}/upload/upload',
+      path: '../javascripts/fancyupload/source/Swiff.Uploader.swf',
+      url: 'upload',
       fieldName: 'file',
       data: 'login=#{@login}',
-      //fileSizeMax 500 Mo
-      fileSizeMax: 500 * 1024 * 1024 * 1024,
+      //fileSizeMax 1 Go
+      fileSizeMax: 1024 * 1024 * 1024 * 1024,
 
       //verbose: true,
 
       // remove that line to select all files, or edit it, add more items
       /*
       typeFilter: {
-		'Images (*.jpg, *.jpeg, *.gif, *.png)': '*.jpg; *.jpeg; *.gif; *.png'
+                'Images (*.jpg, *.jpeg, *.gif, *.png)': '*.jpg; *.jpeg; *.gif; *.png'
       },
       */
 
-     	// graceful degradation, onLoad is only called if all went well with Flash
-	onLoad: function() {
-			$('flash').style.display = 'block'; // we show the actual UI
-			$('no_flash').destroy(); // ... and hide the plain form
-		},
+        // graceful degradation, onLoad is only called if all went well with Flash
+        onLoad: function() {
+                        $('flash').style.display = 'block'; // we show the actual UI
+                        $('no_flash').destroy(); // ... and hide the plain form
+                },
         onComplete: function() {
           window.location = 'index?locale=#{@locale}&notice=ok';
         },
 
                 /**
-		 * onFail is called when the Flash movie got bashed by some browser plugin
-		 * like Adblock or Flashblock.
-		 *
-		 * onFail: function(error) {
-		 *	alert(error)
+                 * onFail is called when the Flash movie got bashed by some browser plugin
+                 * like Adblock or Flashblock.
+                 *
+                 * onFail: function(error) {
+                 *      alert(error)
                  *  },
                  **/
       onSelectFail: function(files) {
@@ -104,6 +103,7 @@
 
     });"
     %>
+
   <%elsif @load_js2%>
     <%= javascript_include_tag 'prototype', 'rails', 'checkingbox' %>
   <%end%>
