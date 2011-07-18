@@ -15,4 +15,7 @@ features are :
 
 some screenshots in the screenshots folder!
 
+Install notes :
+make sur the destination directory (default is public/data) if writable by the webapp
+
 Arnaud
