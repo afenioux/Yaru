@@ -17,5 +17,6 @@ some screenshots in the screenshots folder!
 
 Install notes :
 make sur the destination directory (default is public/data) if writable by the webapp
+you will find an example of the nginx conf in nginx.conf if needed
 
 Arnaud
