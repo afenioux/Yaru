@@ -17,6 +17,15 @@ some screenshots in the screenshots folder!
 
 Install notes :
 make sur the destination directory (default is public/data) if writable by the webapp
-you will find an example of the nginx conf in nginx.conf if needed
+
+* for nginx users
+ -you will find an example of the nginx conf in nginx.conf if needed
+ -in the config/environments/production.rb set this value or nginx will send empty files
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+  see http://www.therailsway.com/2009/2/22/file-downloads-done-right
+  and http://stackoverflow.com/questions/3724853/rails-sends-0-byte-files-using-send-file
+
+I have currently problems with long times uploads, I'm seeking for timeout somewhere...
+I'm still investigating...
 
 Arnaud

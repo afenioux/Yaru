@@ -116,6 +116,7 @@ before_filter :get_destination, :only => [:upload, :upload_file, :index]
   #this action is used to download a file,
   #this version does not scale well
   #look at http://www.therailsway.com/2009/2/22/file-downloads-done-right
+  # and http://stackoverflow.com/questions/3724853/rails-sends-0-byte-files-using-send-file
   #if you want people to be logged before downloading anything change the before_filter
   def download
     file = @@root_destination + params[:file]
